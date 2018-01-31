@@ -230,7 +230,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="8dp"
                     android:paddingBottom="8dp"
-                    android:text="@string/calcuta"/>
+                    android:text="@string/calcutta"/>
             </LinearLayout>
 
             <LinearLayout
