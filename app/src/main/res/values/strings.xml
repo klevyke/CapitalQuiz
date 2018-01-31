@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">LogicQuiz</string>
+    <string name="capitals_of_world">Capitals of the world</string>
     <string name="name">Name</string>
-    <string name="flag">Flag</string>
+    <string name="logo">Logo image</string>
+    <string name="flag">Flag of the country</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
     <string name="capital_brazil">What is the capital of Brazil?</string>
