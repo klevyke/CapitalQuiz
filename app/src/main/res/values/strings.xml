@@ -6,10 +6,6 @@
     <string name="flag">Flag of the country</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
-    <string name="capital_brazil">What is the capital of Brazil?</string>
-    <string name="rio">Rio de Janeiro</string>
-    <string name="brasilia">Brasilia</string>
-    <string name="sao_paulo">São Paulo</string>
     <string name="capital_switzerland">What is the capital of Switzerland?</string>
     <string name="bern">Bern</string>
     <string name="zurich">Zürich</string>
@@ -18,11 +14,16 @@
     <string name="paris">Paris</string>
     <string name="rome">Rome</string>
     <string name="london">London</string>
-    <string name="budapest">Budapest</string>
-    <string name="bucharest">Bucharest</string>
-    <string name="prague">Prague</string>
-    <string name="capital_of_the_country">What is the capital of the country on the map?</string>
-    <string name="berlin">Berlin</string>
-    <string name="madrid">Madrid</string>
-    <string name="page">Page: %s</string>
+    <string name="capital_danube">How many capitals is crossed by Danube?</string>
+    <string name="capital_checklist">Check the capitals form the following list!</string>
+    <string name="sydney">Sydney</string>
+    <string name="astana">Astana</string>
+    <string name="nairobi">Nairobi</string>
+    <string name="tokyo">Tokyo</string>
+    <string name="munchen">Munchen</string>
+    <string name="calcuta">Calcuta</string>
+    <string name="result">Dear %s,\n\nYour result is % points form 100.</string>
+    <string name="good_job">Good job. Pass it to your friends to challenge them.</string>
+    <string name="nice">Nice! But I know that you are maximalist! You can try again!</string>
+    <string name="try_again">You can do it better. Try again!</string>
 </resources>
