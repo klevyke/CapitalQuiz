@@ -24,4 +24,5 @@
     <string name="capital_of_the_country">What is the capital of the country on the map?</string>
     <string name="berlin">Berlin</string>
     <string name="madrid">Madrid</string>
+    <string name="page">Page: %s</string>
 </resources>

@@ -4,6 +4,13 @@
     android:background="@drawable/background"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/page_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -12,6 +19,7 @@
             android:id="@+id/main_flipper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="32dp"
             android:paddingBottom="48dp">
 
             <LinearLayout
@@ -274,13 +282,16 @@
     </ScrollView>
 
     <Button
+        android:id="@+id/previous_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:onClick="previousPage"
         android:text="@string/previous" />
 
     <Button
+        android:id="@+id/next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
