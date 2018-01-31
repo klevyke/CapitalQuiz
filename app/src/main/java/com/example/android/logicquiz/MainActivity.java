@@ -103,7 +103,12 @@ public class MainActivity extends AppCompatActivity {
             points -= 10;
         }
 
-
         return points;
+    }
+    // Reset the quiz
+    public void resetQuiz(View view) {
+        setContentView(R.layout.activity_main);
+        pageFlipper = (ViewFlipper) findViewById(R.id.main_flipper);
+        currentPage = 1;
     }
 }
