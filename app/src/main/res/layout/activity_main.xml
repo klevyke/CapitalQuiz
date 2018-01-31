@@ -4,134 +4,274 @@
     android:background="@drawable/background"
     android:padding="16dp">
 
-    <ViewFlipper
-        android:id="@+id/main_flipper"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <ViewFlipper
+            android:id="@+id/main_flipper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:paddingBottom="48dp">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:contentDescription="@string/logo"
-                android:scaleType="fitCenter"
-                android:src="@drawable/quiz" />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/capitals_of_world"
-                android:textAlignment="center"
-                android:textSize="32sp" />
-
-
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="@string/name"
-                android:inputType="textCapWords" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:contentDescription="@string/flag"
-                android:scaleType="fitCenter"
-                android:src="@drawable/brazil" />
-
-            <TextView
-                android:id="@+id/question1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/capital_brazil"
-                android:textSize="18sp" />
-
-            <RadioGroup
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:contentDescription="@string/logo"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/quiz" />
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/rio" />
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/capitals_of_world"
+                    android:textAlignment="center"
+                    android:textSize="32sp" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/brasilia" />
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/name"
+                    android:inputType="textCapWords" />
+            </LinearLayout>
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/sao_paulo" />
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:contentDescription="@string/flag"
-                android:scaleType="fitCenter"
-                android:src="@drawable/brazil" />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/capital_brazil"
-                android:textSize="18sp" />
-
-            <RadioGroup
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:contentDescription="@string/flag"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/brazil" />
+
+                <TextView
+                    android:id="@+id/question1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/rio" />
+                    android:layout_marginTop="16dp"
+                    android:text="@string/capital_brazil"
+                    android:textSize="18sp" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                <RadioGroup
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/brasilia" />
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/rio" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/brasilia" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/sao_paulo" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:contentDescription="@string/flag"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/swiss" />
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/sao_paulo" />
-            </RadioGroup>
-        </LinearLayout>
+                    android:layout_marginTop="16dp"
+                    android:text="@string/capital_switzerland"
+                    android:textSize="18sp" />
 
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
 
-    </ViewFlipper>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/zurich" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/luzern" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/bern" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:contentDescription="@string/flag"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/london" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/which_capital_picture"
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/paris" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/london" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/rome" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:contentDescription="@string/flag"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/budapest" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/which_capital_picture"
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/prague" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/budapest" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/bucharest" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:contentDescription="@string/flag"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/france" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/capital_of_the_country"
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/paris" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/berlin" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/madrid" />
+                </RadioGroup>
+            </LinearLayout>
+
+        </ViewFlipper>
+    </ScrollView>
 
     <Button
         android:layout_width="wrap_content"
