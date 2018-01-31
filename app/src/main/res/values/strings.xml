@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">LogicQuiz</string>
+    <string name="name">Name</string>
+    <string name="flag">Flag</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="capital_brazil">What is the capital of Brazil?</string>
+    <string name="rio">Rio de Janeiro</string>
+    <string name="brasilia">Brasilia</string>
+    <string name="sao_paulo">São Paulo</string>
+    <string name="capital_switzerland">What is the capital of Switzerland?</string>
+    <string name="bern">Bern</string>
+    <string name="zurich">Zürich</string>
+    <string name="luzern">Luzern</string>
+    <string name="which_capital_picture">Which capital is in the picture?</string>
+    <string name="paris">Paris</string>
+    <string name="rome">Rome</string>
+    <string name="london">London</string>
+    <string name="budapest">Budapest</string>
+    <string name="bucharest">Bucharest</string>
+    <string name="prague">Prague</string>
+    <string name="capital_of_the_country">What is the capital of the country on the map?</string>
+    <string name="berlin">Berlin</string>
+    <string name="madrid">Madrid</string>
 </resources>
