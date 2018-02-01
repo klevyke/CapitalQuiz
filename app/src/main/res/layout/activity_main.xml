@@ -149,9 +149,9 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:contentDescription="@string/flag"
+                        android:contentDescription="@string/danube_image_description"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/france" />
+                        android:src="@drawable/danubemap" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -178,7 +178,7 @@
                         android:layout_height="150dp"
                         android:contentDescription="@string/flag"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/france" />
+                        android:src="@drawable/capitals" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -246,7 +246,7 @@
                         android:layout_height="150dp"
                         android:contentDescription="@string/logo"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/france" />
+                        android:src="@drawable/quiz" />
 
                     <TextView
                         android:id="@+id/result_text"

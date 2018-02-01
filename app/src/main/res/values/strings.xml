@@ -14,7 +14,8 @@
     <string name="paris">Paris</string>
     <string name="rome">Rome</string>
     <string name="london">London</string>
-    <string name="capital_danube">How many capitals is crossed by Danube?</string>
+    <string name="capital_danube">How many capitals are crossed by Danube?</string>
+    <string name="danube_image_description">Image of Danube crossing Europe</string>
     <string name="capital_checklist">Check the capitals form the following list!</string>
     <string name="sydney">Sydney</string>
     <string name="astana">Astana</string>
