@@ -1,5 +1,6 @@
 package com.example.android.logicquiz;
 
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,12 +14,14 @@ import android.widget.ViewFlipper;
 public class MainActivity extends AppCompatActivity {
     // Variable for page number
     int currentPage = 1;
+    android.content.res.Resources resources;
     ViewFlipper pageFlipper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        resources = getResources();
         pageFlipper = (ViewFlipper) findViewById(R.id.main_flipper);
     }
 
@@ -45,10 +48,37 @@ public class MainActivity extends AppCompatActivity {
         Button nextButton = (Button) findViewById(R.id.next_button);
         nextButton.setVisibility(View.INVISIBLE);
     }
+
+    /**
+     * Display the result of the quiz
+     * @param points number of points
+     */
     private void displayPoints(int points) {
-        TextView restulText = (TextView) findViewById(R.id.result_text);
-        restulText.setText("" + points);
+        // Get the users name
+        EditText nameEditText = (EditText) findViewById(R.id.name);
+        String name = nameEditText.getText().toString();
+
+        // Declare the Sring variable returned
+        String resultText = resources.getString(R.string.result, name, "" + points);
+
+        // Display message based on result
+        if (points >= 90) {
+            resultText += resources.getString(R.string.good_job);
+        } else if (points>=50){
+            resultText += resources.getString(R.string.nice);
+        } else {
+            resultText += resources.getString(R.string.try_again);
+        }
+
+        // Set the result's TextView
+        TextView restulTextView = (TextView) findViewById(R.id.result_text);
+        restulTextView.setText(resultText);
     }
+
+    /**
+     * Calculate the result of the quiz
+     * @return number of points
+     */
     private int calculatePoints () {
         int points = 0;
         // Check the first answer
