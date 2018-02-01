@@ -14,7 +14,9 @@ import android.widget.ViewFlipper;
 public class MainActivity extends AppCompatActivity {
     // Variable for page number
     int currentPage = 1;
+    // variable to get the String resources
     android.content.res.Resources resources;
+    // pageFlipper variable to flip pages on next button click
     ViewFlipper pageFlipper;
 
     @Override
@@ -26,18 +28,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Flip to the previos View
+     * Flip to the next View in ViewFlipper
      * @param view
      */
     public void nextPage (View view) {
-
+        // Increase the page number
         currentPage++;
         // Hide the page number on last page
         if (currentPage==6) {
             hideNextButton();
             displayPoints(calculatePoints());
-            //showresetButton();
         }
+        // Go to next page
         pageFlipper.showNext();
     }
 
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
      * @return number of points
      */
     private int calculatePoints () {
-        int points = 0;
+        int points = 10;
         // Check the first answer
         RadioGroup question1RadioGroup = (RadioGroup) findViewById(R.id.question1_radio);
         int radioButtonID = question1RadioGroup.getCheckedRadioButtonId();

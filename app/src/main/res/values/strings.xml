@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LogicQuiz</string>
+    <string name="app_name">CapitalQuiz</string>
     <string name="capitals_of_world">Capitals of the world</string>
     <string name="name">Name</string>
     <string name="logo">Logo image</string>
