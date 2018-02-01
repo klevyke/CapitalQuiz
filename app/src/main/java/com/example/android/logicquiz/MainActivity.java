@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         }
         // Go to next page
         pageFlipper.showNext();
+        // Scroll to top
+        ScrollView scrollContainer = (ScrollView) findViewById(R.id.scroll_container);
+        scrollContainer.fullScroll(ScrollView.FOCUS_UP);
     }
 
     /**
