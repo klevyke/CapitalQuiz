@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends AppCompatActivity {
@@ -64,21 +65,25 @@ public class MainActivity extends AppCompatActivity {
         EditText nameEditText = (EditText) findViewById(R.id.name);
         String name = nameEditText.getText().toString();
 
-        // Declare the Sring variable returned
-        String resultText = resources.getString(R.string.result, name, "" + points);
+        // Declare the String variable for text displayed
+        String resultText = "";
 
         // Display message based on result
         if (points >= 90) {
-            resultText += resources.getString(R.string.good_job);
+            resultText += resources.getString(R.string.good_job, name);
         } else if (points>=50){
-            resultText += resources.getString(R.string.nice);
+            resultText += resources.getString(R.string.nice, name);
         } else {
-            resultText += resources.getString(R.string.try_again);
+            resultText += resources.getString(R.string.try_again, name);
         }
 
         // Set the result's TextView
         TextView restulTextView = (TextView) findViewById(R.id.result_text);
         restulTextView.setText(resultText);
+        // Declare the String variable for toast message and display it
+        String resultToastText = resources.getString(R.string.result, "" + points);
+        Toast.makeText(this, resultToastText, Toast.LENGTH_LONG).show();
+
     }
 
     /**

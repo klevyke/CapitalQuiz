@@ -253,7 +253,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:text="@string/the_end"
                         android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/the_end"
+                        android:textAlignment="center"
+                        android:textSize="32sp" />
 
                     <Button
                         android:layout_width="match_parent"
@@ -261,6 +270,7 @@
                         android:layout_gravity="center"
                         android:onClick="resetQuiz"
                         android:padding="16dp"
+                        android:layout_marginTop="32dp"
                         android:text="@string/reset" />
 
                 </LinearLayout>
