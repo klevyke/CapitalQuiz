@@ -11,7 +11,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ViewFlipper
                 android:id="@+id/main_flipper"
@@ -280,7 +280,7 @@
                 android:id="@+id/next_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_below="@id/main_flipper"
                 android:layout_alignParentRight="true"
                 android:onClick="nextPage"
                 android:text="@string/next" />

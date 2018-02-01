@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
         if (isCompleted()) {
             // Increase the page number
             currentPage++;
-            // Hide the page number on last page and display the result
+            if (currentPage == 5) {
+                changeNextButtonText();
+            }
+            // Hide next button and display the result
             if (currentPage == 6) {
                 hideNextButton();
                 displayPoints(calculatePoints());
@@ -49,6 +53,21 @@ public class MainActivity extends AppCompatActivity {
             ScrollView scrollContainer = (ScrollView) findViewById(R.id.scroll_container);
             scrollContainer.fullScroll(ScrollView.FOCUS_UP);
         }
+    }
+
+    /**
+     *  Hide the next button on last page
+     */
+    private void changeNextButtonText() {
+        // Update the text of the button
+        Button nextButton = (Button) findViewById(R.id.next_button);
+        nextButton.setText(resources.getString(R.string.show_result));
+        // Align to left of the layout
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)nextButton.getLayoutParams();
+        params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+        params.removeRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        params.setMargins(16,16,16,16);
+        nextButton.setLayoutParams(params); //causes layout update
     }
 
     /**

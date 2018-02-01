@@ -24,6 +24,7 @@
     <string name="tokyo">Tokyo</string>
     <string name="munchen">Munchen</string>
     <string name="calcutta">Calcutta</string>
+    <string name="show_result">Show result</string>
     <string name="result">Your result is %s points form 100.</string>
     <string name="good_job">Good job %s. Pass it to your friends to challenge them.</string>
     <string name="nice">It\'s ok %s! But I know that you are maximalist! You can try again!</string>
