@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -34,18 +35,20 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void nextPage (View view) {
-        // Increase the page number
-        currentPage++;
-        // Hide the page number on last page
-        if (currentPage==6) {
-            hideNextButton();
-            displayPoints(calculatePoints());
+        if (isCompleted()) {
+            // Increase the page number
+            currentPage++;
+            // Hide the page number on last page and display the result
+            if (currentPage == 6) {
+                hideNextButton();
+                displayPoints(calculatePoints());
+            }
+            // Go to next page
+            pageFlipper.showNext();
+            // Scroll to top
+            ScrollView scrollContainer = (ScrollView) findViewById(R.id.scroll_container);
+            scrollContainer.fullScroll(ScrollView.FOCUS_UP);
         }
-        // Go to next page
-        pageFlipper.showNext();
-        // Scroll to top
-        ScrollView scrollContainer = (ScrollView) findViewById(R.id.scroll_container);
-        scrollContainer.fullScroll(ScrollView.FOCUS_UP);
     }
 
     /**
@@ -146,7 +149,44 @@ public class MainActivity extends AppCompatActivity {
 
         return points;
     }
-    // Reset the quiz
+
+    /**
+     * Checks if the EditText field is completed or if one RadioButton of RadioGroup is selected
+     * @return if the RadioGroup or the Edittext is completed
+     */
+    private boolean isCompleted() {
+        // Get the current view (every child of the ViewFlipper is a LinearLayout)
+        LinearLayout currentView = (LinearLayout) pageFlipper.getCurrentView();
+
+        // The last element of the LinearLayout is the input element. Let's get it
+        View currentInputChildView = currentView.getChildAt(currentView.getChildCount() - 1);
+
+        // Check if it's a RadioGroup or an Edittext
+        if (currentInputChildView instanceof RadioGroup) {
+            // Cast the view to RadioGroup
+            RadioGroup thisRadioGroup = (RadioGroup) currentInputChildView;
+            // If teher is no RadioButton selected display a toast message and return false
+            if (thisRadioGroup.getCheckedRadioButtonId() < 0) {
+                Toast.makeText(this, resources.getString(R.string.must_check_something), Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+        if (currentInputChildView instanceof EditText) {
+            // Cast the view to EditText
+            EditText thisEditText = (EditText) currentInputChildView;
+            // If the lenght is less than 1 then display a toast message and return false
+            if (thisEditText.getText().length() < 1) {
+                Toast.makeText(this, resources.getString(R.string.must_enter_something), Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+        // Return true if the type of the current view isn't EditText or RadioGroup
+        return true;
+    }
+    /**
+     * Reset the quiz
+     * @view
+     */
     public void resetQuiz(View view) {
         setContentView(R.layout.activity_main);
         pageFlipper = (ViewFlipper) findViewById(R.id.main_flipper);
