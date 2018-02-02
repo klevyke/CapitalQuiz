@@ -1,6 +1,8 @@
 package com.example.android.logicquiz;
 
 import android.content.res.Resources;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,10 +16,12 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
+import com.example.android.logicquiz.QuizState;
+
 
 public class MainActivity extends AppCompatActivity {
     // Variable for page number
-    int currentPage = 1;
+    int currentPage = 0;
     // variable to get the String resources
     android.content.res.Resources resources;
     // pageFlipper variable to flip pages on next button click
@@ -29,8 +33,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         resources = getResources();
         pageFlipper = (ViewFlipper) findViewById(R.id.main_flipper);
+
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user’s current score state
+        QuizState stateOfQuiz = new QuizState();
+        stateOfQuiz.currentpage = currentPage;
+        stateOfQuiz.question1RadioGroup = (RadioGroup) findViewById(R.id.question1_radio);
+        stateOfQuiz.question2RadioGroup = (RadioGroup) findViewById(R.id.question2_radio);
+
+        savedInstanceState.putParcelable("savedState",stateOfQuiz);
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Restore state members from saved instance
+        QuizState stateOfQuiz;
+        stateOfQuiz = savedInstanceState.getParcelable("savedState");
+        pageFlipper.setDisplayedChild(stateOfQuiz.currentpage);
+        // Always call the superclass so it can restore the view hierarchy
+        super.onRestoreInstanceState(savedInstanceState);
+    }
     /**
      * Flip to the next View in ViewFlipper
      * @param view
@@ -39,11 +65,11 @@ public class MainActivity extends AppCompatActivity {
         if (isCompleted()) {
             // Increase the page number
             currentPage++;
-            if (currentPage == 5) {
+            if (currentPage == 4) {
                 changeNextButtonText();
             }
             // Hide next button and display the result
-            if (currentPage == 6) {
+            if (currentPage == 5) {
                 hideNextButton();
                 displayPoints(calculatePoints());
             }
