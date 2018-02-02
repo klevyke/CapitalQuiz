@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="capitals_of_world">Az ország fővárosai</string>
+    <string name="name">Név</string>
+    <string name="logo">Logó kép</string>
+    <string name="flag">Az ország zászlója</string>
+    <string name="must_check_something">Jelölj ki valamit!</string>
+    <string name="must_enter_something">Írj be valamit!</string>
+    <string name="next">Tovább</string>
+    <string name="capital_switzerland">Mi Svájc fővárosa?</string>
+    <string name="which_capital_picture">Melyik főváros van a képen?</string>
+    <string name="paris">Párizs</string>
+    <string name="rome">Róma</string>
+    <string name="capital_danube">Hány fővároson halad át a Duna?</string>
+    <string name="danube_image_description">Térkép a Dunáról</string>
+    <string name="capital_checklist">Jelöld be a fővárosokat!</string>
+    <string name="tokyo">Tokió</string>
+    <string name="show_result">Eredmény</string>
+    <string name="result">Az eredményed %s pont a 100-ból.</string>
+    <string name="good_job">Szép munka %s. Oszd meg barátaiddal és hívd ki őket!</string>
+    <string name="nice">Jó eredmény %s! De tudom, hogy maximalista vagy. Próbálkozz még!</string>
+    <string name="try_again">Többet is tudsz %s. Próbáld újra!</string>
+    <string name="the_end">Vége!</string>
+    <string name="reset">Újrakezdés</string>
+</resources>
