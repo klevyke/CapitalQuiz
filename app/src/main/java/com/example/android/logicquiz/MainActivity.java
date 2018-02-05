@@ -292,5 +292,14 @@ public class MainActivity extends AppCompatActivity {
     public void resetQuiz(View view) {
         setContentView(R.layout.activity_main);
         pageFlipper = (ViewFlipper) findViewById(R.id.main_flipper);
+        question1RadioGroup = (RadioGroup) findViewById(R.id.question1_radio);
+        question2RadioGroup = (RadioGroup) findViewById(R.id.question2_radio);
+        question4Checkbox1 = (CheckBox) findViewById(R.id.question4_checkbox1);
+        question4Checkbox2 = (CheckBox) findViewById(R.id.question4_checkbox2);
+        question4Checkbox3 = (CheckBox) findViewById(R.id.question4_checkbox3);
+        question4Checkbox4 = (CheckBox) findViewById(R.id.question4_checkbox4);
+        question4Checkbox5 = (CheckBox) findViewById(R.id.question4_checkbox5);
+        question4Checkbox6 = (CheckBox) findViewById(R.id.question4_checkbox6);
+        nextButton = (Button) findViewById(R.id.next_button);
     }
 }
