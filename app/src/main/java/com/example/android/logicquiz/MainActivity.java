@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Resource variable
         resources = getResources();
         pageFlipper = (ViewFlipper) findViewById(R.id.main_flipper);
         question1RadioGroup = (RadioGroup) findViewById(R.id.question1_radio);
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         // Save the user’s current page
         stateOfQuiz.currentpage = pageFlipper.getDisplayedChild();
 
-        // Save the 2 RadioButtons
+        // Save the 2 RadioGroup's checked RadioButton IDs
         stateOfQuiz.question1RadioCheckedID = question1RadioGroup.getCheckedRadioButtonId();
         stateOfQuiz.question2RadioCheckedID = question2RadioGroup.getCheckedRadioButtonId();
 
@@ -290,16 +291,21 @@ public class MainActivity extends AppCompatActivity {
      * @view
      */
     public void resetQuiz(View view) {
+        // Reset the activity
         setContentView(R.layout.activity_main);
+        // Reset ViewFlipper object
         pageFlipper = (ViewFlipper) findViewById(R.id.main_flipper);
+        // Reset RadioButtons
         question1RadioGroup = (RadioGroup) findViewById(R.id.question1_radio);
         question2RadioGroup = (RadioGroup) findViewById(R.id.question2_radio);
+        // Reset CheckBoxes
         question4Checkbox1 = (CheckBox) findViewById(R.id.question4_checkbox1);
         question4Checkbox2 = (CheckBox) findViewById(R.id.question4_checkbox2);
         question4Checkbox3 = (CheckBox) findViewById(R.id.question4_checkbox3);
         question4Checkbox4 = (CheckBox) findViewById(R.id.question4_checkbox4);
         question4Checkbox5 = (CheckBox) findViewById(R.id.question4_checkbox5);
         question4Checkbox6 = (CheckBox) findViewById(R.id.question4_checkbox6);
+        // Reset next Button
         nextButton = (Button) findViewById(R.id.next_button);
     }
 }
