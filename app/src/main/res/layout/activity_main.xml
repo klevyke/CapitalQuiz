@@ -76,18 +76,21 @@
                         android:orientation="vertical">
 
                         <RadioButton
+                            android:id="@+id/q1_option1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="@string/zurich" />
 
                         <RadioButton
+                            android:id="@+id/q1_option2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="@string/luzern" />
 
                         <RadioButton
+                            android:id="@+id/q1_option3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
@@ -122,18 +125,21 @@
                         android:orientation="vertical">
 
                         <RadioButton
+                            android:id="@+id/q2_option1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="@string/paris" />
 
                         <RadioButton
+                            android:id="@+id/q2_option2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="@string/london" />
 
                         <RadioButton
+                            android:id="@+id/q2_option3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
