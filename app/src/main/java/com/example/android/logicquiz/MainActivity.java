@@ -28,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
     ViewFlipper pageFlipper;
     RadioGroup question1RadioGroup;
     RadioGroup question2RadioGroup;
+    CheckBox question4Checkbox1;
+    CheckBox question4Checkbox2;
+    CheckBox question4Checkbox3;
+    CheckBox question4Checkbox4;
+    CheckBox question4Checkbox5;
+    CheckBox question4Checkbox6;
+    Button nextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +44,53 @@ public class MainActivity extends AppCompatActivity {
         pageFlipper = (ViewFlipper) findViewById(R.id.main_flipper);
         question1RadioGroup = (RadioGroup) findViewById(R.id.question1_radio);
         question2RadioGroup = (RadioGroup) findViewById(R.id.question2_radio);
+        question4Checkbox1 = (CheckBox) findViewById(R.id.question4_checkbox1);
+        question4Checkbox2 = (CheckBox) findViewById(R.id.question4_checkbox2);
+        question4Checkbox3 = (CheckBox) findViewById(R.id.question4_checkbox3);
+        question4Checkbox4 = (CheckBox) findViewById(R.id.question4_checkbox4);
+        question4Checkbox5 = (CheckBox) findViewById(R.id.question4_checkbox5);
+        question4Checkbox6 = (CheckBox) findViewById(R.id.question4_checkbox6);
+        nextButton = (Button) findViewById(R.id.next_button);
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        // Save the user’s current score state
+        // Declare the object
         QuizState stateOfQuiz = new QuizState();
+
+        // Save the user’s current page
         stateOfQuiz.currentpage = pageFlipper.getDisplayedChild();
-        stateOfQuiz.question1RadioCheckedIndex = question1RadioGroup.getCheckedRadioButtonId();
-        stateOfQuiz.question2RadioCheckedIndex = question2RadioGroup.getCheckedRadioButtonId();
+
+        // Save the 2 RadioButtons
+        stateOfQuiz.question1RadioCheckedID = question1RadioGroup.getCheckedRadioButtonId();
+        stateOfQuiz.question2RadioCheckedID = question2RadioGroup.getCheckedRadioButtonId();
+
+        // set the quastion4's checkboxes
+        if (question4Checkbox1.isChecked()) {
+            stateOfQuiz.checkBox1Checked = true;
+        }
+        if (question4Checkbox2.isChecked()) {
+            stateOfQuiz.checkBox2Checked = true;
+        }
+        if (question4Checkbox3.isChecked()) {
+            stateOfQuiz.checkBox3Checked = true;
+        }
+        if (question4Checkbox4.isChecked()) {
+            stateOfQuiz.checkBox4Checked = true;
+        }
+        if (question4Checkbox5.isChecked()) {
+            stateOfQuiz.checkBox5Checked = true;
+        }
+        if (question4Checkbox6.isChecked()) {
+            stateOfQuiz.checkBox6Checked = true;
+        }
+        // Check if next button is changed
+        if (nextButton.getVisibility() == View.VISIBLE) {
+            stateOfQuiz.nextButtonVisible = true;
+        } else {
+            stateOfQuiz.nextButtonVisible = false;
+        }
+        // Save the object
         savedInstanceState.putParcelable("savedState", stateOfQuiz);
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
@@ -55,10 +100,21 @@ public class MainActivity extends AppCompatActivity {
         // Restore state members from saved instance
         QuizState stateOfQuiz;
         stateOfQuiz = savedInstanceState.getParcelable("savedState");
+        //set current page
         pageFlipper.setDisplayedChild(stateOfQuiz.currentpage);
-        question1RadioGroup.check(stateOfQuiz.question1RadioCheckedIndex);
-        question2RadioGroup.check(stateOfQuiz.question2RadioCheckedIndex);
-
+        //set the radiobuttons
+        question1RadioGroup.check(stateOfQuiz.question1RadioCheckedID);
+        question2RadioGroup.check(stateOfQuiz.question2RadioCheckedID);
+        //set the checkboxes
+        question4Checkbox1.setChecked(stateOfQuiz.checkBox1Checked);
+        question4Checkbox2.setChecked(stateOfQuiz.checkBox2Checked);
+        question4Checkbox3.setChecked(stateOfQuiz.checkBox3Checked);
+        question4Checkbox4.setChecked(stateOfQuiz.checkBox4Checked);
+        question4Checkbox5.setChecked(stateOfQuiz.checkBox5Checked);
+        question4Checkbox6.setChecked(stateOfQuiz.checkBox6Checked);
+        if (!stateOfQuiz.nextButtonVisible) {
+            hideNextButton();
+        }
         // Always call the superclass so it can restore the view hierarchy
         super.onRestoreInstanceState(savedInstanceState);
     }
@@ -92,8 +148,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private void changeNextButtonText() {
         // Update the text of the button
-        Button nextButton = (Button) findViewById(R.id.next_button);
         nextButton.setText(resources.getString(R.string.show_result));
+
         // Align to left of the layout
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)nextButton.getLayoutParams();
         params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
@@ -106,7 +162,6 @@ public class MainActivity extends AppCompatActivity {
      *  Hide the next button on last page
      */
     private void hideNextButton() {
-        Button nextButton = (Button) findViewById(R.id.next_button);
         nextButton.setVisibility(View.INVISIBLE);
     }
 
@@ -134,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
         // Set the result's TextView
         TextView restulTextView = (TextView) findViewById(R.id.result_text);
         restulTextView.setText(resultText);
+
         // Declare the String variable for toast message and display it
         String resultToastText = resources.getString(R.string.result, "" + points);
         Toast.makeText(this, resultToastText, Toast.LENGTH_LONG).show();
@@ -145,55 +201,50 @@ public class MainActivity extends AppCompatActivity {
      * @return number of points
      */
     private int calculatePoints () {
+        // We start form 10 points
         int points = 10;
+
         // Check the first answer
-        RadioGroup question1RadioGroup = (RadioGroup) findViewById(R.id.question1_radio);
+        question1RadioGroup = (RadioGroup) findViewById(R.id.question1_radio);
         int radioButtonID = question1RadioGroup.getCheckedRadioButtonId();
         View radioButton = question1RadioGroup.findViewById(radioButtonID);
         int index = question1RadioGroup.indexOfChild(radioButton);
-
         if (index == 2) {
             points += 20;
         }
+
         // Check the second answer
-        RadioGroup question2RadioGroup = (RadioGroup) findViewById(R.id.question2_radio);
+        question2RadioGroup = (RadioGroup) findViewById(R.id.question2_radio);
         radioButtonID = question2RadioGroup.getCheckedRadioButtonId();
         radioButton = question2RadioGroup.findViewById(radioButtonID);
         index = question2RadioGroup.indexOfChild(radioButton);
-
         if (index == 1) {
             points += 20;
         }
+
         // Check the third answers enered value
         EditText question3EditText = (EditText) findViewById(R.id.danube_capitals);
         String answer3 = question3EditText.getText().toString();
-
         if (answer3.equals("4")) {
             points += 20;
         }
 
         // Check the fourth question's checkboxes (+10 point for every correct answer, -10 for every wrong answer)
-        CheckBox question4Checkbox1 = (CheckBox) findViewById(R.id.question4_checkbox1);
         if (question4Checkbox1.isChecked()) {
             points -= 10;
         }
-        CheckBox question4Checkbox2 = (CheckBox) findViewById(R.id.question4_checkbox2);
         if (question4Checkbox2.isChecked()) {
             points += 10;
         }
-        CheckBox question4Checkbox3 = (CheckBox) findViewById(R.id.question4_checkbox3);
         if (question4Checkbox3.isChecked()) {
             points -= 10;
         }
-        CheckBox question4Checkbox4 = (CheckBox) findViewById(R.id.question4_checkbox4);
         if (question4Checkbox4.isChecked()) {
             points += 10;
         }
-        CheckBox question4Checkbox5 = (CheckBox) findViewById(R.id.question4_checkbox5);
         if (question4Checkbox5.isChecked()) {
             points += 10;
         }
-        CheckBox question4Checkbox6 = (CheckBox) findViewById(R.id.question4_checkbox6);
         if (question4Checkbox6.isChecked()) {
             points -= 10;
         }
