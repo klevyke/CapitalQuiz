@@ -45,8 +45,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:inputType="textCapWords"
                         android:hint="@string/name"
-                        android:inputType="textCapWords" />
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -65,6 +66,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
                         android:text="@string/capital_switzerland"
                         android:textSize="18sp" />
 
@@ -80,6 +82,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:paddingLeft="16dp"
+                            android:textSize="16sp"
                             android:text="@string/zurich" />
 
                         <RadioButton
@@ -87,6 +91,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:paddingLeft="16dp"
+                            android:textSize="16sp"
                             android:text="@string/luzern" />
 
                         <RadioButton
@@ -94,6 +100,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:paddingLeft="16dp"
+                            android:textSize="16sp"
                             android:text="@string/bern" />
                     </RadioGroup>
                 </LinearLayout>
@@ -114,6 +122,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
                         android:text="@string/which_capital_picture"
                         android:textSize="18sp" />
 
@@ -129,6 +138,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:paddingLeft="16dp"
+                            android:textSize="16sp"
                             android:text="@string/paris" />
 
                         <RadioButton
@@ -136,6 +147,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:paddingLeft="16dp"
+                            android:textSize="16sp"
                             android:text="@string/london" />
 
                         <RadioButton
@@ -143,6 +156,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:paddingLeft="16dp"
+                            android:textSize="16sp"
                             android:text="@string/rome" />
                     </RadioGroup>
                 </LinearLayout>
@@ -163,6 +178,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
                         android:text="@string/capital_danube"
                         android:textSize="18sp" />
 
@@ -190,6 +206,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
                         android:text="@string/capital_checklist"
                         android:textSize="18sp" />
 
@@ -197,48 +214,54 @@
                         android:id="@+id/question4_checkbox1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
-                        android:paddingLeft="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:textSize="16sp"
                         android:text="@string/sydney" />
 
                     <CheckBox
                         android:id="@+id/question4_checkbox2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
-                        android:paddingLeft="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:textSize="16sp"
                         android:text="@string/tokyo" />
 
                     <CheckBox
                         android:id="@+id/question4_checkbox3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
-                        android:paddingLeft="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:textSize="16sp"
                         android:text="@string/munchen" />
 
                     <CheckBox
                         android:id="@+id/question4_checkbox4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
-                        android:paddingLeft="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:textSize="16sp"
                         android:text="@string/astana" />
 
                     <CheckBox
                         android:id="@+id/question4_checkbox5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
-                        android:paddingLeft="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:textSize="16sp"
                         android:text="@string/nairobi" />
 
                     <CheckBox
                         android:id="@+id/question4_checkbox6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
-                        android:paddingLeft="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:paddingLeft="16dp"
+                        android:textSize="16sp"
                         android:text="@string/calcutta" />
                 </LinearLayout>
 
