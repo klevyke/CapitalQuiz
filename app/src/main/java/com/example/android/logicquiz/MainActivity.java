@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -20,12 +21,13 @@ import com.example.android.logicquiz.QuizState;
 
 
 public class MainActivity extends AppCompatActivity {
-    // Variable for page number
-    int currentPage = 0;
+
     // variable to get the String resources
     android.content.res.Resources resources;
     // pageFlipper variable to flip pages on next button click
     ViewFlipper pageFlipper;
+    RadioGroup question1RadioGroup;
+    RadioGroup question2RadioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +35,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         resources = getResources();
         pageFlipper = (ViewFlipper) findViewById(R.id.main_flipper);
-
+        question1RadioGroup = (RadioGroup) findViewById(R.id.question1_radio);
+        question2RadioGroup = (RadioGroup) findViewById(R.id.question2_radio);
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         // Save the user’s current score state
         QuizState stateOfQuiz = new QuizState();
-        stateOfQuiz.currentpage = currentPage;
-        stateOfQuiz.question1RadioGroup = (RadioGroup) findViewById(R.id.question1_radio);
-        stateOfQuiz.question2RadioGroup = (RadioGroup) findViewById(R.id.question2_radio);
-
-        savedInstanceState.putParcelable("savedState",stateOfQuiz);
+        stateOfQuiz.currentpage = pageFlipper.getDisplayedChild();
+        stateOfQuiz.question1RadioCheckedIndex = question1RadioGroup.getCheckedRadioButtonId();
+        stateOfQuiz.question2RadioCheckedIndex = question2RadioGroup.getCheckedRadioButtonId();
+        savedInstanceState.putParcelable("savedState", stateOfQuiz);
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
     }
@@ -54,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         QuizState stateOfQuiz;
         stateOfQuiz = savedInstanceState.getParcelable("savedState");
         pageFlipper.setDisplayedChild(stateOfQuiz.currentpage);
+        question1RadioGroup.check(stateOfQuiz.question1RadioCheckedIndex);
+        question2RadioGroup.check(stateOfQuiz.question2RadioCheckedIndex);
+
         // Always call the superclass so it can restore the view hierarchy
         super.onRestoreInstanceState(savedInstanceState);
     }
@@ -63,13 +68,14 @@ public class MainActivity extends AppCompatActivity {
      */
     public void nextPage (View view) {
         if (isCompleted()) {
+            // Variable for page number
+            int currentPage = pageFlipper.getDisplayedChild();
             // Increase the page number
-            currentPage++;
-            if (currentPage == 4) {
+            if (currentPage == 3) {
                 changeNextButtonText();
             }
             // Hide next button and display the result
-            if (currentPage == 5) {
+            if (currentPage == 4) {
                 hideNextButton();
                 displayPoints(calculatePoints());
             }
@@ -235,6 +241,5 @@ public class MainActivity extends AppCompatActivity {
     public void resetQuiz(View view) {
         setContentView(R.layout.activity_main);
         pageFlipper = (ViewFlipper) findViewById(R.id.main_flipper);
-        currentPage = 1;
     }
 }

@@ -10,15 +10,15 @@ import android.widget.RadioGroup;
 
 public class QuizState implements Parcelable {
     int currentpage;
-    RadioGroup question1RadioGroup;
-    RadioGroup question2RadioGroup;
+    int question1RadioCheckedIndex;
+    int question2RadioCheckedIndex;
 
     public QuizState() {}
 
     protected QuizState(Parcel in) {
         currentpage = in.readInt();
-        question1RadioGroup = (RadioGroup) in.readValue(RadioGroup.class.getClassLoader());
-        question2RadioGroup = (RadioGroup) in.readValue(RadioGroup.class.getClassLoader());
+        question1RadioCheckedIndex = in.readInt();
+        question2RadioCheckedIndex = in.readInt();
     }
 
     @Override
@@ -29,8 +29,8 @@ public class QuizState implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(currentpage);
-        dest.writeValue(question1RadioGroup);
-        dest.writeValue(question2RadioGroup);
+        dest.writeValue(question1RadioCheckedIndex);
+        dest.writeValue(question2RadioCheckedIndex);
     }
 
     @SuppressWarnings("unused")
