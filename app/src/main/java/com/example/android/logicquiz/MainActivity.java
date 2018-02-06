@@ -1,5 +1,6 @@
 package com.example.android.logicquiz;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -150,13 +151,6 @@ public class MainActivity extends AppCompatActivity {
     private void changeNextButtonText() {
         // Update the text of the button
         nextButton.setText(resources.getString(R.string.show_result));
-
-        // Align to left of the layout
-        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)nextButton.getLayoutParams();
-        params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-        params.removeRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-        params.setMargins(16,16,16,16);
-        nextButton.setLayoutParams(params); //causes layout update
     }
 
     /**
@@ -193,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Declare the String variable for toast message and display it
         String resultToastText = resources.getString(R.string.result, "" + points);
-        Toast.makeText(this, resultToastText, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), resultToastText, Toast.LENGTH_LONG).show();
 
     }
 
@@ -270,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
             RadioGroup thisRadioGroup = (RadioGroup) currentInputChildView;
             // If teher is no RadioButton selected display a toast message and return false
             if (thisRadioGroup.getCheckedRadioButtonId() < 0) {
-                Toast.makeText(this, resources.getString(R.string.must_check_something), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), resources.getString(R.string.must_check_something), Toast.LENGTH_LONG).show();
                 return false;
             }
         }
@@ -279,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
             EditText thisEditText = (EditText) currentInputChildView;
             // If the lenght is less than 1 then display a toast message and return false
             if (thisEditText.getText().length() < 1) {
-                Toast.makeText(this, resources.getString(R.string.must_enter_something), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), resources.getString(R.string.must_enter_something), Toast.LENGTH_LONG).show();
                 return false;
             }
         }
