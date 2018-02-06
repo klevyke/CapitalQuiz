@@ -6,6 +6,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -187,8 +188,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Declare the String variable for toast message and display it
         String resultToastText = resources.getString(R.string.result, "" + points);
-        Toast.makeText(getApplicationContext(), resultToastText, Toast.LENGTH_LONG).show();
-
+        Toast resultToast = Toast.makeText(getApplicationContext(), resultToastText, Toast.LENGTH_LONG);
+        // Put the toast in the top half of the screen, under the logo to be more visible
+        resultToast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 300);
+        resultToast.show();
     }
 
     /**
