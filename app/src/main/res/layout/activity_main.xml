@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:padding="16dp">
+    android:padding="@dimen/layout_padding">
 
     <ScrollView
         android:id="@+id/scroll_container"
@@ -17,7 +17,7 @@
                 android:id="@+id/main_flipper"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="32dp">
+                android:paddingTop="@dimen/layout_padding">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -26,7 +26,7 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="@dimen/main_image_height"
                         android:contentDescription="@string/logo"
                         android:scaleType="fitCenter"
                         android:src="@drawable/quiz" />
@@ -37,14 +37,14 @@
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/capitals_of_world"
                         android:textAlignment="center"
-                        android:textSize="32sp" />
+                        android:textSize="@dimen/title" />
 
 
                     <EditText
                         android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="@dimen/text_margin"
                         android:inputType="textCapWords"
                         android:hint="@string/name"
                         />
@@ -57,7 +57,7 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="@dimen/main_image_height"
                         android:contentDescription="@string/flag"
                         android:scaleType="fitCenter"
                         android:src="@drawable/swiss" />
@@ -65,43 +65,42 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="@string/capital_switzerland"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="@dimen/text_margin"
+                        android:layout_marginBottom="@dimen/text_margin"
+                        android:text="@string/capital_switzerland" />
 
                     <RadioGroup
                         android:id="@+id/question1_radio"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="@dimen/text_margin"
                         android:orientation="vertical">
 
                         <RadioButton
                             android:id="@+id/q1_option1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:paddingLeft="16dp"
-                            android:textSize="16sp"
+                            android:layout_marginTop="@dimen/radio_margin"
+                            android:paddingStart="@dimen/radio_padding_left"
+                            android:textSize="@dimen/radio_text_size"
                             android:text="@string/zurich" />
 
                         <RadioButton
                             android:id="@+id/q1_option2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:paddingLeft="16dp"
-                            android:textSize="16sp"
+                            android:layout_marginTop="@dimen/radio_margin"
+                            android:paddingLeft="@dimen/radio_padding_left"
+                            android:textSize="@dimen/radio_text_size"
                             android:text="@string/luzern" />
 
                         <RadioButton
                             android:id="@+id/q1_option3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:paddingLeft="16dp"
-                            android:textSize="16sp"
+                            android:layout_marginTop="@dimen/radio_margin"
+                            android:paddingLeft="@dimen/radio_padding_left"
+                            android:textSize="@dimen/radio_text_size"
                             android:text="@string/bern" />
                     </RadioGroup>
                 </LinearLayout>
@@ -113,7 +112,7 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="@dimen/main_image_height"
                         android:contentDescription="@string/flag"
                         android:scaleType="fitCenter"
                         android:src="@drawable/london" />
@@ -121,43 +120,42 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="@string/which_capital_picture"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="@dimen/text_margin"
+                        android:layout_marginBottom="@dimen/text_margin"
+                        android:text="@string/which_capital_picture" />
 
                     <RadioGroup
                         android:id="@+id/question2_radio"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="@dimen/text_margin"
                         android:orientation="vertical">
 
                         <RadioButton
                             android:id="@+id/q2_option1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:paddingLeft="16dp"
-                            android:textSize="16sp"
+                            android:layout_marginTop="@dimen/radio_margin"
+                            android:paddingLeft="@dimen/radio_padding_left"
+                            android:textSize="@dimen/radio_text_size"
                             android:text="@string/paris" />
 
                         <RadioButton
                             android:id="@+id/q2_option2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:paddingLeft="16dp"
-                            android:textSize="16sp"
+                            android:layout_marginTop="@dimen/radio_margin"
+                            android:paddingLeft="@dimen/radio_padding_left"
+                            android:textSize="@dimen/radio_text_size"
                             android:text="@string/london" />
 
                         <RadioButton
                             android:id="@+id/q2_option3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:paddingLeft="16dp"
-                            android:textSize="16sp"
+                            android:layout_marginTop="@dimen/radio_margin"
+                            android:paddingLeft="@dimen/radio_padding_left"
+                            android:textSize="@dimen/radio_text_size"
                             android:text="@string/rome" />
                     </RadioGroup>
                 </LinearLayout>
@@ -169,7 +167,7 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="@dimen/main_image_height"
                         android:contentDescription="@string/danube_image_description"
                         android:scaleType="fitCenter"
                         android:src="@drawable/danubemap" />
@@ -177,10 +175,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="@string/capital_danube"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="@dimen/text_margin"
+                        android:layout_marginBottom="@dimen/text_margin"
+                        android:text="@string/capital_danube" />
 
                     <EditText
                         android:id="@+id/danube_capitals"
@@ -197,7 +194,7 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="@dimen/main_image_height"
                         android:contentDescription="@string/flag"
                         android:scaleType="fitCenter"
                         android:src="@drawable/capitals" />
@@ -205,63 +202,62 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="@string/capital_checklist"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="@dimen/text_margin"
+                        android:layout_marginBottom="@dimen/text_margin"
+                        android:text="@string/capital_checklist" />
 
                     <CheckBox
                         android:id="@+id/question4_checkbox1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:paddingLeft="16dp"
-                        android:textSize="16sp"
+                        android:layout_marginTop="@dimen/radio_margin"
+                        android:paddingLeft="@dimen/radio_padding_left"
+                        android:textSize="@dimen/radio_text_size"
                         android:text="@string/sydney" />
 
                     <CheckBox
                         android:id="@+id/question4_checkbox2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:paddingLeft="16dp"
-                        android:textSize="16sp"
+                        android:layout_marginTop="@dimen/radio_margin"
+                        android:paddingLeft="@dimen/radio_padding_left"
+                        android:textSize="@dimen/radio_text_size"
                         android:text="@string/tokyo" />
 
                     <CheckBox
                         android:id="@+id/question4_checkbox3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:paddingLeft="16dp"
-                        android:textSize="16sp"
+                        android:layout_marginTop="@dimen/radio_margin"
+                        android:paddingLeft="@dimen/radio_padding_left"
+                        android:textSize="@dimen/radio_text_size"
                         android:text="@string/munchen" />
 
                     <CheckBox
                         android:id="@+id/question4_checkbox4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:paddingLeft="16dp"
-                        android:textSize="16sp"
+                        android:layout_marginTop="@dimen/radio_margin"
+                        android:paddingLeft="@dimen/radio_padding_left"
+                        android:textSize="@dimen/radio_text_size"
                         android:text="@string/astana" />
 
                     <CheckBox
                         android:id="@+id/question4_checkbox5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:paddingLeft="16dp"
-                        android:textSize="16sp"
+                        android:layout_marginTop="@dimen/radio_margin"
+                        android:paddingLeft="@dimen/radio_padding_left"
+                        android:textSize="@dimen/radio_text_size"
                         android:text="@string/nairobi" />
 
                     <CheckBox
                         android:id="@+id/question4_checkbox6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:paddingLeft="16dp"
-                        android:textSize="16sp"
+                        android:layout_marginTop="@dimen/radio_margin"
+                        android:paddingLeft="@dimen/radio_padding_left"
+                        android:textSize="@dimen/radio_text_size"
                         android:text="@string/calcutta" />
                 </LinearLayout>
 
@@ -272,7 +268,7 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="@dimen/main_image_height"
                         android:contentDescription="@string/logo"
                         android:scaleType="fitCenter"
                         android:src="@drawable/quiz" />
@@ -281,25 +277,24 @@
                         android:id="@+id/result_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/the_end"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="@dimen/text_margin"
+                        android:text="@string/the_end" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="@dimen/text_margin"
                         android:text="@string/the_end"
                         android:textAlignment="center"
-                        android:textSize="32sp" />
+                        android:textSize="@dimen/title" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:onClick="resetQuiz"
-                        android:padding="16dp"
-                        android:layout_marginTop="32dp"
+                        android:padding="@dimen/layout_padding"
+                        android:layout_marginTop="@dimen/button_padding"
                         android:text="@string/reset" />
 
                 </LinearLayout>

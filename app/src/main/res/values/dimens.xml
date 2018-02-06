@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title">32sp</dimen>
+    <dimen name="radio_text_size">16sp</dimen>
+    <dimen name="checkbox_padding">16dp</dimen>
+    <dimen name="main_image_height">150dp</dimen>
+    <dimen name="layout_padding">16dp</dimen>
+    <dimen name="radio_padding_left">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="radio_margin">8dp</dimen>
+    <dimen name="button_padding">32dp</dimen>
+</resources>
