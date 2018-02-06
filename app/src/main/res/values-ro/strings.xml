@@ -20,4 +20,8 @@
     <string name="try_again">Poți și mai mult %s. Încearcă din nou!</string>
     <string name="the_end">Sfârșit!</string>
     <string name="reset">Reîncepe</string>
+    <string name="share">Distribuie</string>
+    <string name="share_my_result">Am făcut %s de puncte din 100 in aplicația CapitalQuiz. Poți să depășești acest scor?</string>
+    <string name="subject">Reyultatele mele in CapitalQuiz</string>
+    <string name="share_in_mail">Distribuie în e-mail</string>
 </resources>

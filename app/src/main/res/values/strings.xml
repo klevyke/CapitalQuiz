@@ -31,4 +31,8 @@
     <string name="try_again">You can do it better %s. Try again!</string>
     <string name="the_end">The end!</string>
     <string name="reset">Reset</string>
+    <string name="share">Share</string>
+    <string name="share_my_result">I made %s points form 100 in CapitalQuiz app. Can you reach this score?</string>
+    <string name="subject">My result in CapitalQuiz app</string>
+    <string name="share_in_mail">Share in mail</string>
 </resources>

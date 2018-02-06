@@ -1,7 +1,9 @@
 package com.example.android.logicquiz;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
@@ -282,6 +284,23 @@ public class MainActivity extends AppCompatActivity {
         }
         // Return true if the type of the current view isn't EditText or RadioGroup
         return true;
+    }
+
+    /**
+     * Share the result by sending a mail
+     * @param view
+     */
+    public void shareResult(View view) {
+        // Set the mail
+        String message = resources.getString(R.string.share_my_result, "" + calculatePoints());
+        // Initialize the share intent object
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_SUBJECT, resources.getString(R.string.subject));
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(Intent.createChooser(intent, resources.getString(R.string.share_in_mail)));
+        }
     }
     /**
      * Reset the quiz

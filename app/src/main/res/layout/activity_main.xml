@@ -288,6 +288,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:onClick="shareResult"
+                        android:padding="@dimen/layout_padding"
+                        android:layout_marginTop="@dimen/button_padding"
+                        android:text="@string/share" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:onClick="resetQuiz"
                         android:padding="@dimen/layout_padding"
                         android:layout_marginTop="@dimen/button_padding"

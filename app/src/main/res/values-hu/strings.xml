@@ -22,4 +22,8 @@
     <string name="try_again">Többet is tudsz %s. Próbáld újra!</string>
     <string name="the_end">Vége!</string>
     <string name="reset">Újrakezdés</string>
+    <string name="share">Megosztás</string>
+    <string name="share_my_result">Én %s pontot értem el a 100-ból a CapitalQuiz alkalmazásban. Túl tudod szárnylni ezt?</string>
+    <string name="subject">Eredményem a CapitalQuiz alkalmazásban</string>
+    <string name="share_in_mail">Megosztás e-mailben</string>
 </resources>
