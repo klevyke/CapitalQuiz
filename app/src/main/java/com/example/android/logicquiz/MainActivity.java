@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     CheckBox question4Checkbox6;
     Button nextButton;
 
+    // Declare the String variable for the result displayed
+    String resultText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         question4Checkbox5 = (CheckBox) findViewById(R.id.question4_checkbox5);
         question4Checkbox6 = (CheckBox) findViewById(R.id.question4_checkbox6);
         nextButton = (Button) findViewById(R.id.next_button);
+        resultText = "";
     }
 
     @Override
@@ -76,8 +80,12 @@ public class MainActivity extends AppCompatActivity {
         } else {
             stateOfQuiz.nextButtonVisible = false;
         }
+        // Save the result text
+        stateOfQuiz.resultText = resultText;
+
         // Save the object
         savedInstanceState.putParcelable("savedState", stateOfQuiz);
+
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
     }
@@ -101,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
         if (!stateOfQuiz.nextButtonVisible) {
             hideNextButton();
         }
+        // Restore the result text
+        resultText = stateOfQuiz.resultText;
+        displayResultText(resultText);
+
         // Always call the superclass so it can restore the view hierarchy
         super.onRestoreInstanceState(savedInstanceState);
     }
@@ -150,11 +162,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void displayPoints(int points) {
         // Get the users name
-        EditText nameEditText = (EditText) findViewById(R.id.name);
-        String name = nameEditText.getText().toString();
-
-        // Declare the String variable for text displayed
-        String resultText = "";
+        String name = getName();
 
         // Display message based on result
         if (points >= 90) {
@@ -165,10 +173,18 @@ public class MainActivity extends AppCompatActivity {
             resultText += resources.getString(R.string.try_again, name);
         }
 
-        // Set the result's TextView
-        TextView restulTextView = (TextView) findViewById(R.id.result_text);
-        restulTextView.setText(resultText);
+        // Display the result test
+        displayResultText(resultText);
 
+        // Show the toast message
+        showResultToast(points);
+    }
+
+    /**
+     * Show the result in a toast message
+     * @param points
+     */
+    private void showResultToast(int points) {
         // Declare the String variable for toast message and display it
         String resultToastText = resources.getString(R.string.result, "" + points);
         Toast resultToast = Toast.makeText(getApplicationContext(), resultToastText, Toast.LENGTH_LONG);
@@ -177,6 +193,24 @@ public class MainActivity extends AppCompatActivity {
         resultToast.show();
     }
 
+    /**
+     * Display the result text
+     * @param text to be displayed
+     */
+    private void displayResultText(String text) {
+        // Set the result's TextView
+        TextView restulTextView = (TextView) findViewById(R.id.result_text);
+        restulTextView.setText(text);
+    }
+
+    /**
+     * Get the name entered by the user
+     */
+    private String getName () {
+        // Get the users name
+        EditText nameEditText = (EditText) findViewById(R.id.name);
+        return nameEditText.getText().toString();
+    }
     /**
      * Calculate the result of the quiz
      * @return number of points

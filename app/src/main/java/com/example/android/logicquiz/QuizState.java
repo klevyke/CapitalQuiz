@@ -18,6 +18,7 @@ public class QuizState implements Parcelable {
     boolean checkBox5Checked;
     boolean checkBox6Checked;
     boolean nextButtonVisible;
+    String resultText;
 
     public QuizState() {}
 
@@ -32,6 +33,7 @@ public class QuizState implements Parcelable {
         checkBox5Checked = in.readByte() != 0x00;
         checkBox6Checked = in.readByte() != 0x00;
         nextButtonVisible = in.readByte() != 0x00;
+        resultText = in.readString();
     }
 
     @Override
@@ -51,6 +53,7 @@ public class QuizState implements Parcelable {
         dest.writeByte((byte) (checkBox5Checked ? 0x01 : 0x00));
         dest.writeByte((byte) (checkBox6Checked ? 0x01 : 0x00));
         dest.writeByte((byte) (nextButtonVisible ? 0x01 : 0x00));
+        dest.writeString(resultText);
     }
 
     @SuppressWarnings("unused")
