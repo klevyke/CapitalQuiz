@@ -63,24 +63,13 @@ public class MainActivity extends AppCompatActivity {
         stateOfQuiz.question2RadioCheckedID = question2RadioGroup.getCheckedRadioButtonId();
 
         // set the quastion4's checkboxes
-        if (question4Checkbox1.isChecked()) {
-            stateOfQuiz.checkBox1Checked = true;
-        }
-        if (question4Checkbox2.isChecked()) {
-            stateOfQuiz.checkBox2Checked = true;
-        }
-        if (question4Checkbox3.isChecked()) {
-            stateOfQuiz.checkBox3Checked = true;
-        }
-        if (question4Checkbox4.isChecked()) {
-            stateOfQuiz.checkBox4Checked = true;
-        }
-        if (question4Checkbox5.isChecked()) {
-            stateOfQuiz.checkBox5Checked = true;
-        }
-        if (question4Checkbox6.isChecked()) {
-            stateOfQuiz.checkBox6Checked = true;
-        }
+        stateOfQuiz.checkBox1Checked = question4Checkbox1.isChecked();
+        stateOfQuiz.checkBox2Checked = question4Checkbox2.isChecked();
+        stateOfQuiz.checkBox3Checked = question4Checkbox3.isChecked();
+        stateOfQuiz.checkBox4Checked = question4Checkbox4.isChecked();
+        stateOfQuiz.checkBox5Checked = question4Checkbox5.isChecked();
+        stateOfQuiz.checkBox6Checked = question4Checkbox6.isChecked();
+
         // Check if next button is changed
         if (nextButton.getVisibility() == View.VISIBLE) {
             stateOfQuiz.nextButtonVisible = true;
