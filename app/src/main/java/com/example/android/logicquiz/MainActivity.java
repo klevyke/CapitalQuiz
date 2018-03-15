@@ -18,9 +18,10 @@ import android.widget.ViewFlipper;
 
 public class MainActivity extends AppCompatActivity {
 
-    // variable to get the String resources
+    // Variable to get the String resources
     android.content.res.Resources resources;
-    // pageFlipper variable to flip pages on next button click
+
+    // Declare variables for views
     ViewFlipper pageFlipper;
     RadioGroup question1RadioGroup;
     RadioGroup question2RadioGroup;
@@ -39,8 +40,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         // Resource variable
         resources = getResources();
+
+        // Initialize Views variables
         pageFlipper = (ViewFlipper) findViewById(R.id.main_flipper);
         question1RadioGroup = (RadioGroup) findViewById(R.id.question1_radio);
         question2RadioGroup = (RadioGroup) findViewById(R.id.question2_radio);
@@ -51,12 +55,15 @@ public class MainActivity extends AppCompatActivity {
         question4Checkbox5 = (CheckBox) findViewById(R.id.question4_checkbox5);
         question4Checkbox6 = (CheckBox) findViewById(R.id.question4_checkbox6);
         nextButton = (Button) findViewById(R.id.next_button);
+
+        // Initialize result String
         resultText = "";
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        // Declare the object
+
+        // Declare the object that will be saved on statechange
         QuizState stateOfQuiz = new QuizState();
 
         // Save the user’s current page
@@ -94,21 +101,27 @@ public class MainActivity extends AppCompatActivity {
         // Restore state members from saved instance
         QuizState stateOfQuiz;
         stateOfQuiz = savedInstanceState.getParcelable("savedState");
-        //set current page
+
+        // Restore current page
         pageFlipper.setDisplayedChild(stateOfQuiz.currentpage);
-        //set the radiobuttons
+
+        // Restore the radiobuttons
         question1RadioGroup.check(stateOfQuiz.question1RadioCheckedID);
         question2RadioGroup.check(stateOfQuiz.question2RadioCheckedID);
-        //set the checkboxes
+
+        // Restore the checkboxes
         question4Checkbox1.setChecked(stateOfQuiz.checkBox1Checked);
         question4Checkbox2.setChecked(stateOfQuiz.checkBox2Checked);
         question4Checkbox3.setChecked(stateOfQuiz.checkBox3Checked);
         question4Checkbox4.setChecked(stateOfQuiz.checkBox4Checked);
         question4Checkbox5.setChecked(stateOfQuiz.checkBox5Checked);
         question4Checkbox6.setChecked(stateOfQuiz.checkBox6Checked);
+
+        // Restore the nextButton
         if (!stateOfQuiz.nextButtonVisible) {
             hideNextButton();
         }
+
         // Restore the result text
         resultText = stateOfQuiz.resultText;
         displayResultText(resultText);
@@ -121,18 +134,22 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void nextPage (View view) {
+        // Check if the page is completed
         if (isCompleted()) {
             // Variable for page number
             int currentPage = pageFlipper.getDisplayedChild();
-            // Increase the page number
+
+            // change the next button text if its the last question
             if (currentPage == 3) {
                 changeNextButtonText();
             }
-            // Hide next button and display the result
+
+            // Hide next button and display the result on the last page
             if (currentPage == 4) {
                 hideNextButton();
                 displayPoints(calculatePoints());
             }
+
             // Go to next page
             pageFlipper.showNext();
             // Scroll to top
@@ -142,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *  Hide the next button on last page
+     *  Change the next button text if its the last question
      */
     private void changeNextButtonText() {
         // Update the text of the button
@@ -182,12 +199,14 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Show the result in a toast message
-     * @param points
+     * @param points displayed in toast
      */
     private void showResultToast(int points) {
+
         // Declare the String variable for toast message and display it
         String resultToastText = resources.getString(R.string.result, "" + points);
         Toast resultToast = Toast.makeText(getApplicationContext(), resultToastText, Toast.LENGTH_LONG);
+
         // Put the toast in the top half of the screen, under the logo to be more visible
         resultToast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 300);
         resultToast.show();
@@ -211,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
         EditText nameEditText = (EditText) findViewById(R.id.name);
         return nameEditText.getText().toString();
     }
+
     /**
      * Calculate the result of the quiz
      * @return number of points
@@ -237,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
             points += 20;
         }
 
-        // Check the third answers enered value
+        // Check the third answers entered value
         EditText question3EditText = (EditText) findViewById(R.id.danube_capitals);
         String answer3 = question3EditText.getText().toString();
         if (answer3.equals("4")) {
@@ -280,8 +300,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Check if it's a RadioGroup or an Edittext
         if (currentInputChildView instanceof RadioGroup) {
+
             // Cast the view to RadioGroup
             RadioGroup thisRadioGroup = (RadioGroup) currentInputChildView;
+
             // If teher is no RadioButton selected display a toast message and return false
             if (thisRadioGroup.getCheckedRadioButtonId() < 0) {
                 Toast.makeText(getApplicationContext(), resources.getString(R.string.must_check_something), Toast.LENGTH_LONG).show();
@@ -289,8 +311,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         if (currentInputChildView instanceof EditText) {
+
             // Cast the view to EditText
             EditText thisEditText = (EditText) currentInputChildView;
+
             // If the lenght is less than 1 then display a toast message and return false
             if (thisEditText.getText().length() < 1) {
                 Toast.makeText(getApplicationContext(), resources.getString(R.string.must_enter_something), Toast.LENGTH_LONG).show();
@@ -317,6 +341,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(intent, resources.getString(R.string.share_in_mail)));
         }
     }
+
     /**
      * Reset the quiz
      * @view
@@ -338,5 +363,7 @@ public class MainActivity extends AppCompatActivity {
         question4Checkbox6 = (CheckBox) findViewById(R.id.question4_checkbox6);
         // Reset next Button
         nextButton = (Button) findViewById(R.id.next_button);
+        // Reset the result text
+        resultText = "";
     }
 }
